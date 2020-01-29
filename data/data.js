@@ -31,7 +31,7 @@ const URL = "https://www.superheroapi.com/api.php/3421198451228918/"
 /*
     Pasandole como parametro la data que devuelve readApi crea dinamicamente
     la lista en html con todos los datos, si alguno tiene sub lista, la crea a travez
-    de la otra funcion y la agrega
+    de la function crearSubLista y la agrega
 */
       
     function createList(obj){
