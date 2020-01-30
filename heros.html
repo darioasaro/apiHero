@@ -14,8 +14,12 @@
     <link rel="stylesheet" href="/css/styles.css">
     <title>Star Wars</title>
 </head>
-<body id="1">
-    
+<body>
+    <script>
+        $(document).ready(function () {
+    $('.menuContainer').load('heros.html');
+  });
+    </script>
     <header>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
@@ -38,21 +42,19 @@
               <a class="nav-link" href="#">Disabled</a>
             </li>
           </ul>
-          <form id="formulario" class="form-inline my-2 my-lg-0"  >
+          <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" >Search Hero</button>
+            <button class="btn btn-outline-light my-2 my-sm-0" onclick="buscarPorNombre()" type="submit">Search Hero</button>
           </form>
         </div>
       </nav>
       
       <section>
-                
-        <div class="container" >
-            <div class="card-deck text-center" id="divContenedor" style="width: 100%;">
-                
-            </div>
-    
+        <div class="menuContainer">
+            <!-- <iframe width="760" height="25" src="heros.html" scrolling="no" frameborder="no" ></iframe> -->
         </div>
+        
+        
         
       </section>
       <footer>

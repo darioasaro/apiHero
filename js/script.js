@@ -1,4 +1,3 @@
-let planetas;
 var rowCont=1;
 let hero;
 const URL = "https://www.superheroapi.com/api.php/3421198451228918/";
@@ -65,4 +64,15 @@ function createDiv(hero){
     rowCont++;
 }
     
+function buscarPorNombre(evento) {
+    evento.preventDefault();
+    alert("hola");
+    window.location="heros.html";
+    evento.target.reset()
+}
+
+ document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("formulario").addEventListener("submit",buscarPorNombre);
+}); 
+
     
