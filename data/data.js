@@ -1,4 +1,4 @@
-const URL = "https://www.superheroapi.com/api.php/3421198451228918/"
+const URL = "https://www.superheroapi.com/api.php/3421198451228918/";
 
 /* function readApi()
     los parametros para llamar a la funcion pueden ser :
