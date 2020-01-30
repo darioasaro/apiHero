@@ -1,6 +1,6 @@
 var rowCont=1;
 let hero;
-const URL = "https://www.superheroapi.com/api.php/3421198451228918/";
+const URL2 = "https://www.superheroapi.com/api.php/3421198451228918/";
 
 async function readApi(first,second){
     var response = await fetch(URL+first+"/"+second)
@@ -63,11 +63,39 @@ function createDiv(hero){
     divContainer.appendChild(div);
     rowCont++;
 }
+
+function buscar(nombre){
+            
+    readApi("search",nombre)
+    .then(
+        function(data){
     
+            results = data.results
+            results.forEach(element => {
+                createDiv(element)                            
+            });
+    }
+)  
+}
 function buscarPorNombre(evento) {
     evento.preventDefault();
-    alert("hola");
-    window.location="heros.html";
+    console.log(evento);
+    
+    nameHeroe= document.getElementById("nombreHero").value;
+    readApi("search",nameHeroe)
+    .then(
+        function(data){
+            document.getElementById("divContenedor").innerHTML = " ";
+            results = data.results
+            results.forEach(heroe => {
+                //console.log(heroe);
+                
+                createDiv(heroe);
+            });
+            
+           
+    });
+   
     evento.target.reset()
 }
 
