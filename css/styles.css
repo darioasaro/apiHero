@@ -1,0 +1,36 @@
+header{
+    background-color: black;
+    height: 318px;
+    background-image: url("/images/banner-justice-league.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.padding-largpo{
+    padding: 5px 10px;
+}
+.no-lista{
+    padding: 0px;
+    margin: 0px;
+}
+.inline-block{
+    float: none;
+    display: inline-block;
+    /*margin-right: -4px;*/
+}
+section{
+    
+    
+    background-color: black;
+    width: 100%;
+    /*
+    background-image: url("/images/fondo.jpg");
+    background-repeat: no-repeat; */
+    
+}
+.card-deck .card {
+    min-width: 220px;
+    max-width: 270px;
+  }
+  #sticky-footer {
+    flex-shrink: none;
+  }
