@@ -19,11 +19,7 @@ const URL = "https://www.superheroapi.com/api.php/3421198451228918/"
 
     */
 
-    async function readApi(first,second){
-        var response = await fetch(URL+first+"/"+second)
-        var data = await response.json()
-        return data
-    }
+  
 
 
 //----------------------------------------///
@@ -126,6 +122,11 @@ const URL = "https://www.superheroapi.com/api.php/3421198451228918/"
 //----------------------------------------///
 
 
+async function readApi(first,second){
+  var response = await fetch(URL+first+"/"+second)
+  var data = await response.json()
+  return data
+}
 
 
 
