@@ -116,13 +116,35 @@ function buscarPorNombre(evento) {
 
 function seeMore(idHero) {
     document.getElementById("divContenedor").innerHTML = " ";
+    
+    
     let her = readApi("",idHero)
     .then(
         function(data){
-            createDiv(data);
-            createList(data);
+            //createDiv(data); 
+            createProfile(data);           
+            //createList(data);
         }
     )
     
 }
+
+function createProfile(hero){
+    let divContainer = document.getElementById("divContenedor");
+        let div = document.createElement("div");
+        div.classList.add("row");
+            let divImage = document.createElement("div");
+                let img = document.createElement("img");
+                img.setAttribute("src", hero.image.url);
+                img.setAttribute("height","200px");
+            divImage.appendChild(img);
+        div.appendChild(divImage);
+
+        let div2 = document.createElement("div");
+        div.classList.add("col-sm-4","col-md-4");
+        let list = createList(hero);
+        div2.innerHTML=list;
     
+    divContainer.appendChild(div);
+    divContainer.appendChild(div2);
+} 
