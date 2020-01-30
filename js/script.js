@@ -58,6 +58,19 @@ function createDiv(hero){
             divPanelBody.appendChild(biography);
         div.appendChild(divPanelBody);
 
+        let divFooter = document.createElement("div");
+				divFooter.classList.add("card-footer");
+
+					let button = document.createElement("button");					
+					button.classList.add("btn", "btn-primary");
+					button.setAttribute("type","button");					
+                    button.setAttribute("id",hero.id);
+                    button.setAttribute("onClick", "seeMore("+hero.id+")");
+					button.setAttribute("data-target","#"+(hero.name).replace(/ /g, ""));
+					button.innerHTML="See More";
+				divFooter.appendChild(button);
+			div.appendChild(divFooter);
+
             
 
     divContainer.appendChild(div);
@@ -88,8 +101,6 @@ function buscarPorNombre(evento) {
             document.getElementById("divContenedor").innerHTML = " ";
             results = data.results
             results.forEach(heroe => {
-                //console.log(heroe);
-                
                 createDiv(heroe);
             });
             
@@ -103,4 +114,15 @@ function buscarPorNombre(evento) {
     document.getElementById("formulario").addEventListener("submit",buscarPorNombre);
 }); 
 
+function seeMore(idHero) {
+    document.getElementById("divContenedor").innerHTML = " ";
+    let her = readApi("",idHero)
+    .then(
+        function(data){
+            createDiv(data);
+            createList(data);
+        }
+    )
+    
+}
     

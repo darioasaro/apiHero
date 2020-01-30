@@ -57,7 +57,7 @@ const URL = "https://www.superheroapi.com/api.php/3421198451228918/";
                     
                 }
            
-           var body = document.getElementById(1)
+           var body = document.getElementById("container")
            body.appendChild(list)
             
         
@@ -66,7 +66,7 @@ const URL = "https://www.superheroapi.com/api.php/3421198451228918/";
 
 
        function crearSubLista(obj){
-        onsole.log(res);
+       
             var arr = Object.keys(obj)
             var val = Object.values(obj)
             var lista = document.createElement("ul")
