@@ -34,5 +34,8 @@ section{
   #sticky-footer {
     flex-shrink: none;
   }
+  li{
+      color: antiquewhite;
+  }
 /*                          */
 

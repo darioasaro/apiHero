@@ -84,9 +84,11 @@ function buscar(nombre){
         function(data){
     
             results = data.results
-            results.forEach(element => {
-                createDiv(element)                            
-            });
+            
+                results.forEach(element => {
+                    createDiv(element)                            
+                });
+           
     }
 )  
 }
@@ -98,11 +100,16 @@ function buscarPorNombre(evento) {
     readApi("search",nameHeroe)
     .then(
         function(data){
-            document.getElementById("divContenedor").innerHTML = " ";
-            results = data.results
-            results.forEach(heroe => {
-                createDiv(heroe);
-            });
+            
+            if(data.response=="success"){
+                document.getElementById("divContenedor").innerHTML = " ";
+                results = data.results
+                results.forEach(heroe => {
+                    createDiv(heroe);
+                });
+            }else{
+                alert("No existe el personaje "+ nameHeroe);
+            }
             
            
     });
@@ -115,9 +122,45 @@ function buscarPorNombre(evento) {
 }); 
 
 function seeMore(idHero) {
+
+    
     document.getElementById("divContenedor").innerHTML = " ";
+   
     
+    let her = readApi("",idHero)
+    .then(
+        
+        
+        function(data){
+            console.log(data);
+
+            htmll= `
+                    <div class="media" style="margin-top: 5%; margin-bottom: 1%; color: aliceblue;">
+                        <img class="d-flex align-self-start mr-3" src="${data.image.url}" alt="Generic placeholder image" style="width: 40%;">
+                        <div class="media-body" style="text-align: unset;">
+                            <h2 class="mt-0 font-weight-bold">${data.name}</h2>
+                            <h5>Power Stats</h5>
+                            <div> 
+                                <ul class="list-group list-group-horizontal" style="text-align: unset;">
+                                    <li class="list-group" style="padding: 2%;" >Intelligence: ${data.powerstats.intelligence}</li>
+                                    <li class="list-group" style="padding: 2%;">Strength: ${data.powerstats.strength}</li>
+                                    <li class="list-group" style="padding: 2%;">Speed: ${data.powerstats.speed}</li>
+                                    <li class="list-group" style="padding: 2%;">Durability: ${data.powerstats.durability}</li>
+                                    <li class="list-group" style="padding: 2%;">Power: ${data.powerstats.power}</li>
+                                    <li class="list-group" style="padding: 2%;">Combat: ${data.powerstats.combat}</li>
+                                </ul>
+                            </div>
+                            
+                            <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus
+                            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        </div>
+                    </div>`;
+                document.getElementById("divContenedor").innerHTML = htmll;
+                
+        }
+    )
     
+    /*
     let her = readApi("",idHero)
     .then(
         function(data){
@@ -125,11 +168,12 @@ function seeMore(idHero) {
             createProfile(data);           
             //createList(data);
         }
-    )
+    )*/
     
 }
 
 function createProfile(hero){
+    let row = (rowCont % 3 === 0)?"row":"";
     let divContainer = document.getElementById("divContenedor");
         let div = document.createElement("div");
         div.classList.add("row");
@@ -148,3 +192,8 @@ function createProfile(hero){
     divContainer.appendChild(div);
     divContainer.appendChild(div2);
 } 
+
+         
+                    
+                  
+                    
