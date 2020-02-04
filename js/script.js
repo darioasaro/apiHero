@@ -1,8 +1,18 @@
-var rowCont=1;
-let hero;
-const URL2 = "https://www.superheroapi.com/api.php/3421198451228918/";
+import Service from "./service.js";
+import View from "./view.js";
+import Controller from "./controller.js"
 
-async function readApi(first,second){
+let url = "https://www.superheroapi.com/api.php/3421198451228918/";
+const service = new Service(url);
+const controller = new Controller(service);
+const view = new View(controller);
+view.init();
+
+/* var rowCont=1;
+let hero;
+const URL2 = "https://www.superheroapi.com/api.php/3421198451228918/"; */
+
+/* async function readApi(first,second){
     var response = await fetch(URL+first+"/"+second)
     var data = await response.json()
     return data
@@ -17,9 +27,9 @@ for (let i = 1; i <= 12; i++) {
         }
     )
     
-}
+} */
     
-
+/* 
 function createDiv(hero){
     let row = (rowCont % 3 === 0)?"row":"";
     let divContainer = document.getElementById("divContenedor")
@@ -168,7 +178,7 @@ function seeMore(idHero) {
             createProfile(data);           
             //createList(data);
         }
-    )*/
+    )
     
 }
 
@@ -192,7 +202,7 @@ function createProfile(hero){
     divContainer.appendChild(div);
     divContainer.appendChild(div2);
 } 
-
+ */
          
                     
                   
