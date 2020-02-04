@@ -6,19 +6,21 @@ class Controller {
 
 
     async obtenerHeros(){
+        var arr = []
         for (let i = 1; i <= 12; i++) {
-            var chap = this.service.readApi("",i)
-            .then(
-                function(data){
-                    //this.vista.createDiv(data);
-                    //console.log("data",data);
-                    
-                    return data;
-                }
-            )
+           
             
-        }
+            var chap = await this.service.readApi("",i)
+            .then(function(data){
+            
+            //console.log(data);
+            arr.push (data)
+            }
+            )}
+    return arr
+     
     }
+    
 
 }
 
