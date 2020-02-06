@@ -20,8 +20,8 @@ class Controller {
     return arr
      
     }
-    
 
 }
 
 export default Controller;
+
